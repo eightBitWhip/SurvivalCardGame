@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jxo-96-PrA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="W1r-6b-W8W">
+            <objects>
+                <viewController id="Jxo-96-PrA" customClass="GameViewController" customModule="HazardsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8uc-i9-WcV"/>
+                        <viewControllerLayoutGuide type="bottom" id="62Q-IB-fb4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3wD-eh-oMG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ha-va-cuj">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-XG-Pwo" customClass="RoundedCornersButton" customModule="HazardsCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="101" height="40"/>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
+                                        <state key="normal" title="Take">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shuffleCardsButtonDidTap:" destination="Jxo-96-PrA" eventType="touchUpInside" id="bkA-Wk-ftv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alo-hz-wL5" customClass="RoundedCornersButton" customModule="HazardsCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="133" y="20" width="108" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.29713305275499402" blue="0.41284402565319334" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="108" id="97M-Qe-Iij"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
+                                        <state key="normal" title="Draw">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="drawButtonDidTap:" destination="Jxo-96-PrA" eventType="touchUpInside" id="wWp-dD-BOu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iq-1t-Ebk" customClass="RoundedCornersButton" customModule="HazardsCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="253" y="20" width="102" height="40"/>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
+                                        <state key="normal" title="Bin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="binButtonDidTap:" destination="Jxo-96-PrA" eventType="touchUpInside" id="5n5-UT-HLB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VEc-XG-Pwo" firstAttribute="top" secondItem="2ha-va-cuj" secondAttribute="top" constant="20" id="1cg-6Z-B3X"/>
+                                    <constraint firstItem="alo-hz-wL5" firstAttribute="centerX" secondItem="2ha-va-cuj" secondAttribute="centerX" id="2vb-7m-eM8"/>
+                                    <constraint firstAttribute="bottom" secondItem="alo-hz-wL5" secondAttribute="bottom" constant="20" id="4gx-aQ-nmJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="VEc-XG-Pwo" secondAttribute="bottom" constant="20" id="5YZ-R8-UVj"/>
+                                    <constraint firstItem="0iq-1t-Ebk" firstAttribute="top" secondItem="2ha-va-cuj" secondAttribute="top" constant="20" id="9mb-xO-Y2N"/>
+                                    <constraint firstItem="VEc-XG-Pwo" firstAttribute="leading" secondItem="2ha-va-cuj" secondAttribute="leading" constant="20" id="TvA-hF-RkR"/>
+                                    <constraint firstItem="alo-hz-wL5" firstAttribute="top" secondItem="2ha-va-cuj" secondAttribute="top" constant="20" id="VS1-2V-Ify"/>
+                                    <constraint firstItem="0iq-1t-Ebk" firstAttribute="leading" secondItem="alo-hz-wL5" secondAttribute="trailing" constant="12" id="kIy-Pq-4GW"/>
+                                    <constraint firstAttribute="bottom" secondItem="0iq-1t-Ebk" secondAttribute="bottom" constant="20" id="oCF-a1-29G"/>
+                                    <constraint firstAttribute="height" constant="80" id="rGc-7r-kwT"/>
+                                    <constraint firstAttribute="trailing" secondItem="0iq-1t-Ebk" secondAttribute="trailing" constant="20" id="sUV-DL-y1V"/>
+                                    <constraint firstItem="alo-hz-wL5" firstAttribute="leading" secondItem="VEc-XG-Pwo" secondAttribute="trailing" constant="12" id="yDL-ye-tSR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ey3-yN-BRB" customClass="SCNView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qD-HQ-MEB">
+                                <rect key="frame" x="285" y="96" width="76" height="56"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parchment" translatesAutoresizingMaskIntoConstraints="NO" id="QMP-go-yyI">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="56"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEy-Ak-Teu">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="56"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QMP-go-yyI" secondAttribute="bottom" id="9Uh-Tf-Han"/>
+                                    <constraint firstAttribute="width" constant="76" id="9n2-VG-nCL"/>
+                                    <constraint firstAttribute="height" constant="56" id="Aw3-7h-y27"/>
+                                    <constraint firstItem="QMP-go-yyI" firstAttribute="top" secondItem="7qD-HQ-MEB" secondAttribute="top" id="ClI-D6-jbc"/>
+                                    <constraint firstAttribute="trailing" secondItem="QMP-go-yyI" secondAttribute="trailing" id="GU5-aR-VBC"/>
+                                    <constraint firstItem="xEy-Ak-Teu" firstAttribute="top" secondItem="7qD-HQ-MEB" secondAttribute="top" id="Id4-IT-zdk"/>
+                                    <constraint firstAttribute="bottom" secondItem="xEy-Ak-Teu" secondAttribute="bottom" id="Jk5-qi-PX0"/>
+                                    <constraint firstAttribute="trailing" secondItem="xEy-Ak-Teu" secondAttribute="trailing" id="c4C-QD-SUy"/>
+                                    <constraint firstItem="QMP-go-yyI" firstAttribute="leading" secondItem="7qD-HQ-MEB" secondAttribute="leading" id="cQd-aY-eO7"/>
+                                    <constraint firstItem="xEy-Ak-Teu" firstAttribute="leading" secondItem="7qD-HQ-MEB" secondAttribute="leading" id="fYE-ry-rF3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-CB-WX9">
+                                <rect key="frame" x="0.0" y="20" width="375" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morale:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouV-Gy-NNj">
+                                        <rect key="frame" x="16" y="21" width="69" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="3he-Tr-vo7"/>
+                                            <constraint firstAttribute="width" constant="69" id="6SI-ox-Kvy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEQ-oj-x4C" customClass="EnergyView" customModule="HazardsCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="93" y="19" width="230" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Sra-cz-xRX"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkN-A9-cc3">
+                                        <rect key="frame" x="326" y="11" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lZ3-4U-zhC"/>
+                                            <constraint firstAttribute="width" constant="40" id="r06-nj-RXl"/>
+                                        </constraints>
+                                        <state key="normal" image="homeIcon"/>
+                                        <connections>
+                                            <action selector="homeButtonDidTap:" destination="Jxo-96-PrA" eventType="touchUpInside" id="gcw-83-bFV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="B6Y-1v-3ML"/>
+                                    <constraint firstAttribute="trailing" secondItem="SEQ-oj-x4C" secondAttribute="trailing" constant="52" id="CNo-Ny-gcn"/>
+                                    <constraint firstAttribute="trailing" secondItem="xkN-A9-cc3" secondAttribute="trailing" constant="9" id="Mhe-tS-BgV"/>
+                                    <constraint firstItem="ouV-Gy-NNj" firstAttribute="leading" secondItem="1Wh-CB-WX9" secondAttribute="leading" constant="16" id="QYO-gm-Jdo"/>
+                                    <constraint firstItem="SEQ-oj-x4C" firstAttribute="leading" secondItem="ouV-Gy-NNj" secondAttribute="trailing" constant="8" id="X6r-KS-cgo"/>
+                                    <constraint firstItem="xkN-A9-cc3" firstAttribute="centerY" secondItem="1Wh-CB-WX9" secondAttribute="centerY" id="oWe-oR-cl6"/>
+                                    <constraint firstItem="SEQ-oj-x4C" firstAttribute="centerY" secondItem="1Wh-CB-WX9" secondAttribute="centerY" id="pEk-1B-a2S"/>
+                                    <constraint firstItem="ouV-Gy-NNj" firstAttribute="centerY" secondItem="1Wh-CB-WX9" secondAttribute="centerY" id="vfJ-HU-3Mb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgA-bi-CRa" customClass="AbilitiesContainer" customModule="HazardsCardGame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="534" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.075074133211678828" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="A5B-Bb-zCd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ha-va-cuj" firstAttribute="top" secondItem="YgA-bi-CRa" secondAttribute="bottom" constant="9" id="4VZ-0p-zw8"/>
+                            <constraint firstItem="ey3-yN-BRB" firstAttribute="top" secondItem="8uc-i9-WcV" secondAttribute="bottom" id="4gi-ln-f7g"/>
+                            <constraint firstAttribute="trailing" secondItem="1Wh-CB-WX9" secondAttribute="trailing" id="ArX-eu-cle"/>
+                            <constraint firstItem="62Q-IB-fb4" firstAttribute="top" secondItem="2ha-va-cuj" secondAttribute="bottom" id="IHI-p2-Etb"/>
+                            <constraint firstAttribute="trailing" secondItem="2ha-va-cuj" secondAttribute="trailing" id="K7d-Yh-Hs5"/>
+                            <constraint firstAttribute="trailing" secondItem="7qD-HQ-MEB" secondAttribute="trailing" constant="14" id="Myp-0B-odc"/>
+                            <constraint firstItem="2ha-va-cuj" firstAttribute="leading" secondItem="3wD-eh-oMG" secondAttribute="leading" id="Rss-Gj-JhG"/>
+                            <constraint firstItem="YgA-bi-CRa" firstAttribute="leading" secondItem="3wD-eh-oMG" secondAttribute="leading" id="WD3-EY-pzy"/>
+                            <constraint firstItem="1Wh-CB-WX9" firstAttribute="top" secondItem="8uc-i9-WcV" secondAttribute="bottom" id="YKg-eI-Ppd"/>
+                            <constraint firstAttribute="trailing" secondItem="YgA-bi-CRa" secondAttribute="trailing" id="af0-97-DMe"/>
+                            <constraint firstItem="ey3-yN-BRB" firstAttribute="leading" secondItem="3wD-eh-oMG" secondAttribute="leading" id="cgN-OH-paO"/>
+                            <constraint firstAttribute="trailing" secondItem="ey3-yN-BRB" secondAttribute="trailing" id="sm2-i2-yTY"/>
+                            <constraint firstItem="7qD-HQ-MEB" firstAttribute="top" secondItem="1Wh-CB-WX9" secondAttribute="bottom" constant="14" id="v4U-Kw-pIv"/>
+                            <constraint firstItem="2ha-va-cuj" firstAttribute="top" secondItem="ey3-yN-BRB" secondAttribute="bottom" id="wXk-Oy-03q"/>
+                            <constraint firstItem="1Wh-CB-WX9" firstAttribute="leading" secondItem="3wD-eh-oMG" secondAttribute="leading" id="yKg-Jp-1vc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="abilitiesContainer" destination="YgA-bi-CRa" id="k7G-87-QYY"/>
+                        <outlet property="challengePointsLabel" destination="xEy-Ak-Teu" id="DKt-8u-Rz8"/>
+                        <outlet property="destroyButton" destination="0iq-1t-Ebk" id="8HV-fk-W1f"/>
+                        <outlet property="drawButton" destination="alo-hz-wL5" id="3FP-sT-hFM"/>
+                        <outlet property="gameView" destination="ey3-yN-BRB" id="L0O-7V-cAy"/>
+                        <outlet property="moraleContainer" destination="SEQ-oj-x4C" id="Ilf-GX-2GE"/>
+                        <outlet property="takeButton" destination="VEc-XG-Pwo" id="VPg-0K-iga"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DT3-XC-0uO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="842.42878560719646"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homeIcon" width="100" height="100"/>
+        <image name="parchment" width="75" height="75"/>
+    </resources>
+</document>

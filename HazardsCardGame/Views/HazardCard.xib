@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChallengeCardView" customModule="HazardsCardGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="175"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxh-7U-wZz">
+                    <rect key="frame" x="22" y="122" width="42" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNN-CQ-LX4">
+                    <rect key="frame" x="185" y="131" width="50" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWJ-Xl-84S">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="32"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.088948802029999996" green="0.443952866" blue="0.1107112899" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="H3k-so-JeK"/>
+                        <constraint firstAttribute="width" constant="50" id="X2v-1d-1pm"/>
+                        <constraint firstAttribute="trailing" secondItem="fWJ-Xl-84S" secondAttribute="trailing" id="XQq-Ca-Nuq"/>
+                        <constraint firstItem="fWJ-Xl-84S" firstAttribute="top" secondItem="NNN-CQ-LX4" secondAttribute="top" id="fHn-ue-DcU"/>
+                        <constraint firstAttribute="bottom" secondItem="fWJ-Xl-84S" secondAttribute="bottom" id="iWo-qO-si0"/>
+                        <constraint firstItem="fWJ-Xl-84S" firstAttribute="leading" secondItem="NNN-CQ-LX4" secondAttribute="leading" id="wOQ-Y1-9Qy"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhR-yS-GaR">
+                    <rect key="frame" x="185" y="91" width="50" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-96-zs2">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="32"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.86326114994010217" blue="0.2702713547484149" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dS1-96-zs2" secondAttribute="bottom" id="WOi-rc-iJR"/>
+                        <constraint firstAttribute="height" constant="32" id="cLg-dK-Q9x"/>
+                        <constraint firstAttribute="width" constant="50" id="fPN-h0-XSM"/>
+                        <constraint firstItem="dS1-96-zs2" firstAttribute="leading" secondItem="LhR-yS-GaR" secondAttribute="leading" id="g0w-Lg-pEs"/>
+                        <constraint firstAttribute="trailing" secondItem="dS1-96-zs2" secondAttribute="trailing" id="n8V-WU-oDo"/>
+                        <constraint firstItem="dS1-96-zs2" firstAttribute="top" secondItem="LhR-yS-GaR" secondAttribute="top" id="qdF-Ao-4tj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKM-Pz-QGu">
+                    <rect key="frame" x="185" y="51" width="50" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="741-oC-QTP">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="32"/>
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.36732504700104618" blue="0.16952837259181386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="741-oC-QTP" firstAttribute="leading" secondItem="zKM-Pz-QGu" secondAttribute="leading" id="OAn-fL-9gf"/>
+                        <constraint firstItem="741-oC-QTP" firstAttribute="top" secondItem="zKM-Pz-QGu" secondAttribute="top" id="SW1-QJ-rM9"/>
+                        <constraint firstAttribute="height" constant="32" id="d8u-fE-3iC"/>
+                        <constraint firstAttribute="bottom" secondItem="741-oC-QTP" secondAttribute="bottom" id="f9T-fT-A76"/>
+                        <constraint firstAttribute="width" constant="50" id="fdh-fZ-5qg"/>
+                        <constraint firstAttribute="trailing" secondItem="741-oC-QTP" secondAttribute="trailing" id="iOv-aQ-Jeh"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the raft to the wreck" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0s-jb-aWi">
+                    <rect key="frame" x="60" y="10" width="130" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="CAN-HB-I4h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="X0s-jb-aWi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="4uK-QS-FEG"/>
+                <constraint firstAttribute="trailing" secondItem="zKM-Pz-QGu" secondAttribute="trailing" constant="15" id="5UU-Ys-a4I"/>
+                <constraint firstAttribute="trailing" secondItem="NNN-CQ-LX4" secondAttribute="trailing" constant="15" id="7hW-bT-Gqh"/>
+                <constraint firstItem="X0s-jb-aWi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="8SP-qz-J48"/>
+                <constraint firstAttribute="trailing" secondItem="LhR-yS-GaR" secondAttribute="trailing" constant="15" id="QVa-vM-zh2"/>
+                <constraint firstAttribute="trailing" secondItem="X0s-jb-aWi" secondAttribute="trailing" constant="60" id="V6p-H1-kC8"/>
+                <constraint firstAttribute="bottom" secondItem="NNN-CQ-LX4" secondAttribute="bottom" constant="12" id="W7b-v3-gN0"/>
+                <constraint firstItem="NNN-CQ-LX4" firstAttribute="top" secondItem="LhR-yS-GaR" secondAttribute="bottom" constant="8" id="jbP-Ej-JBT"/>
+                <constraint firstItem="LhR-yS-GaR" firstAttribute="top" secondItem="zKM-Pz-QGu" secondAttribute="bottom" constant="8" id="q5C-Of-5Qd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="challengeCaption" destination="X0s-jb-aWi" id="FzL-Eb-G4V"/>
+                <outlet property="drawAmountLabel" destination="Kxh-7U-wZz" id="VNC-M2-1gq"/>
+                <outlet property="firstChallengeLabel" destination="fWJ-Xl-84S" id="ZOn-Sa-odR"/>
+                <outlet property="secondChallengeLabel" destination="dS1-96-zs2" id="DXm-7l-koP"/>
+                <outlet property="thirdChallengeLabel" destination="741-oC-QTP" id="fM9-1U-fxE"/>
+            </connections>
+            <point key="canvasLocation" x="36" y="110.5"/>
+        </view>
+    </objects>
+</document>
