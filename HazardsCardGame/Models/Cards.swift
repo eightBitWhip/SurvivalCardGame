@@ -93,6 +93,13 @@ struct Card {
     }
 }
 
+extension Card: Equatable {
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.cid == rhs.cid
+    }
+}
+
 struct CardDecks {
     
     static let basic: [Card] = [

@@ -117,6 +117,7 @@ class GameViewController: UIViewController {
             if let nodeName = result.node.name {
                 
                 game?.selectedNode(withName: nodeName, ability: activeAbility)
+                activeAbility = nil
             }
         }
     }
@@ -172,6 +173,20 @@ class GameViewController: UIViewController {
         
         return .portrait
     }
+    
+    fileprivate func layoutInPlayCards() {
+        
+        guard let cards = game?.inPlay else { return }
+        
+        for (index, card) in cards.enumerated() {
+        
+            if let node = gameView.scene?.rootNode.childNode(withName: card.cid, recursively: true) {
+                
+                node.position.y = (inPlayYStart + (0.01 * Float(index)))
+                move(card: node, toZPosition: (inPlayZStart + (0.1 * Float(index + 1))), xPosition: node.position.x) {}
+            }
+        }
+    }
 }
 
 extension GameViewController: GameDelegate {
@@ -193,11 +208,7 @@ extension GameViewController: GameDelegate {
         
         move(card: node, toZPosition: node.position.z, xPosition: -0.2) {}
         
-        destroyButton.isEnabled = true
-        
-        guard let points = game?.inPlayPoints, let challengePoints = game?.challengePoints else { return }
-        challengePointsLabel.text = "\(points)/\(challengePoints)"
-        takeButton.isEnabled = (points >= challengePoints)
+        updateChallengeStatus()
     }
     
     func selected(challengeCard: Card, withCompletion completion: @escaping () -> Void) {
@@ -251,6 +262,7 @@ extension GameViewController: GameDelegate {
             move(card: node, toZPosition: 1, xPosition: node.position.x, completion: {
             
                 node.removeFromParentNode()
+                self.layoutInPlayCards()
             })
         }
     }
@@ -294,6 +306,15 @@ extension GameViewController: GameDelegate {
         guard let label = gameOverLabel else { return }
         view.addSubview(label)
     }
+    
+    func updateChallengeStatus() {
+    
+        destroyButton.isEnabled = true
+        
+        guard let points = game?.inPlayPoints, let challengePoints = game?.challengePoints else { return }
+        challengePointsLabel.text = "\(points)/\(challengePoints)"
+        takeButton.isEnabled = (points >= challengePoints)
+    }
 }
 
 extension GameViewController: AbilitiesContainerDelegate {
@@ -302,20 +323,29 @@ extension GameViewController: AbilitiesContainerDelegate {
         
         switch ability.type {
             
-        case .bottomOfDeck:
+        case .bottomOfDeck, .destroy, .swap, .exchange, .double:
+            activeAbility = ability
             break
-        case .copy:
-            break
-        case .destroy:
-            break
+            
         case .draw:
             game?.draw(cost: 0)
             guard ability.value == 2 else { return }
             game?.draw(cost: 0)
             break
+            
         case .life:
             game?.morale += ability.value ?? 0
             break
+            
+        case .copy:
+            abilitiesContainer.selectedCopy()
+            break
+            
+        case .phase:
+            game?.phaseModifier = ability.value ?? 0
+            updateChallengeStatus()
+            break
+            
         default:
             break
         }

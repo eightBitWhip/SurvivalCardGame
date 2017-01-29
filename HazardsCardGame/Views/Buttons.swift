@@ -45,6 +45,7 @@ class RoundedCornersButton: UIButton {
 protocol AbilityButtonDelegate: class {
     
     func selected(button: AbilityButton)
+    func layoutButtons()
 }
 
 class AbilityButton: RoundedCornersButton {
@@ -69,5 +70,11 @@ class AbilityButton: RoundedCornersButton {
         titleLabel?.font = UIFont.systemFont(ofSize: 10)
         
         addTarget(self, action: #selector(AbilityButton.buttonDidTap), for: .touchUpInside)
+    }
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        
+        delegate?.layoutButtons()
     }
 }

@@ -21,6 +21,7 @@
 		978F02DB1E2B6E31003207D8 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F02DA1E2B6E31003207D8 /* ChallengeCardView.swift */; };
 		978F02DD1E2EC63D003207D8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F02DC1E2EC63D003207D8 /* Array+Extensions.swift */; };
 		97C643261E33617600962590 /* AbilitiesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C643251E33617600962590 /* AbilitiesContainer.swift */; };
+		97C643491E3E461500962590 /* Misc+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C643481E3E461500962590 /* Misc+Extensions.swift */; };
 		97E4A1A41E2581B900F6736F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4A1A31E2581B900F6736F /* AppDelegate.swift */; };
 		97E4A1A61E2581B900F6736F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E4A1A51E2581B900F6736F /* art.scnassets */; };
 		97E4A1A81E2581B900F6736F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4A1A71E2581B900F6736F /* GameViewController.swift */; };
@@ -57,6 +58,7 @@
 		978F02DA1E2B6E31003207D8 /* ChallengeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
 		978F02DC1E2EC63D003207D8 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		97C643251E33617600962590 /* AbilitiesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilitiesContainer.swift; sourceTree = "<group>"; };
+		97C643481E3E461500962590 /* Misc+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Misc+Extensions.swift"; sourceTree = "<group>"; };
 		97E4A1A01E2581B900F6736F /* HazardsCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HazardsCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E4A1A31E2581B900F6736F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E4A1A51E2581B900F6736F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				978F02CE1E26CC6A003207D8 /* UIView+Extensions.swift */,
 				978F02DC1E2EC63D003207D8 /* Array+Extensions.swift */,
+				97C643481E3E461500962590 /* Misc+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				978F02D71E2A84DE003207D8 /* EnergyView.swift in Sources */,
+				97C643491E3E461500962590 /* Misc+Extensions.swift in Sources */,
 				978F02D91E2AD771003207D8 /* Game.swift in Sources */,
 				978F02D51E2A2B89003207D8 /* Buttons.swift in Sources */,
 				978F02DD1E2EC63D003207D8 /* Array+Extensions.swift in Sources */,

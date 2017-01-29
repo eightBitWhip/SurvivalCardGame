@@ -35,6 +35,7 @@ protocol GameDelegate: class {
     func phaseChanged(phase: GamePhase)
     func stateChanged()
     func gameOver()
+    func updateChallengeStatus()
 }
 
 class Game: NSObject {
@@ -64,6 +65,9 @@ class Game: NSObject {
                 
             case .playChallenge:
                 challengeDrawCount = 0
+                challengeBonusPoints = 0
+                phaseModifier = 0
+                highestCardModifier = nil
                 delegate?.beginChallenge()
                 break
                 
@@ -95,15 +99,26 @@ class Game: NSObject {
     }
     var inPlayPoints: Int {
         
-        var points = 0
+        var points = challengeBonusPoints
+        inPlay = inPlay.sorted(by: { $0.pointValue > $1.pointValue })
         _ = inPlay.map({ points += $0.pointValue })
+        
+        guard let highestCardModifier = highestCardModifier else { return points }
+        points -= (inPlay.first?.pointValue ?? 0)
+        points += highestCardModifier
         return points
     }
     var challengePoints: Int? {
         
-        return activeChallenge?.challenge?.requirement[phase]
+        var modifiedPhaseValue = (phase.rawValue + phaseModifier)
+        modifiedPhaseValue.clamp(min: 1, max: 3)
+        let currentPhase = GamePhase(rawValue: modifiedPhaseValue)
+        return activeChallenge?.challenge?.requirement[currentPhase ?? .first]
     }
     var challengeDrawCount: Int = 0
+    private var challengeBonusPoints: Int = 0
+    var phaseModifier: Int = 0
+    private var highestCardModifier: Int?
     
     var delegate: GameDelegate?
     
@@ -127,6 +142,27 @@ class Game: NSObject {
         dealChallenges()
     }
     
+    private func activate(instantAbility ability: Ability) {
+    
+        switch ability.type {
+            
+        case .highestCardEqual:
+            highestCardModifier = ability.value
+            break
+            
+        case .stop:
+            challengeDrawCount = activeChallenge?.challenge?.drawAmount ?? challengeDrawCount
+            break
+            
+        case .life:
+            morale += ability.value ?? 0
+            break
+            
+        default:
+            break
+        }
+    }
+    
     func draw(cost: Int) {
         
         guard state == .playChallenge, morale > 0 else { return }
@@ -137,7 +173,7 @@ class Game: NSObject {
         
         challengeDrawCount += cost
         
-        if let drawAmount = activeChallenge?.challenge?.drawAmount, challengeDrawCount > drawAmount {
+        if cost > 0, let drawAmount = activeChallenge?.challenge?.drawAmount, challengeDrawCount > drawAmount {
             
             morale -= 1
         }
@@ -150,6 +186,9 @@ class Game: NSObject {
         delegate?.present(card: card)
         
         logStatus()
+        
+        guard let ability = card.ability, ability.activation == .instant else { return }
+        activate(instantAbility: ability)
     }
     
     func completedChallenge() {
@@ -254,6 +293,45 @@ class Game: NSObject {
         }
     }
     
+    private func selectedCard(withName name: String, ability: Ability?) {
+        
+        if let selectedNode = inPlay.filter({ $0.cid == name }).first, let ability = ability {
+            
+            switch ability.type {
+                
+            case .destroy:
+                guard let index = inPlay.index(of: selectedNode) else { return }
+                inPlay.remove(at: index)
+                delegate?.removeCard(withName: selectedNode.cid)
+                break
+                
+            case .double:
+                challengeBonusPoints += selectedNode.pointValue
+                break
+                
+            case .exchange, .swap:
+                guard let index = inPlay.index(of: selectedNode) else { return }
+                let card = inPlay.remove(at: index)
+                usedDeck.append(card)
+                delegate?.removeCard(withName: selectedNode.cid)
+                draw(cost: 0)
+                break
+                
+            case .bottomOfDeck:
+                guard let index = inPlay.index(of: selectedNode) else { return }
+                let card = inPlay.remove(at: index)
+                drawDeck.insert(card, at: 0)
+                delegate?.removeCard(withName: selectedNode.cid)
+                break
+                
+            default:
+                break
+            }
+        }
+        
+        delegate?.updateChallengeStatus()
+    }
+    
     func selectedNode(withName name: String, ability: Ability?) {
         
         logStatus()
@@ -268,6 +346,7 @@ class Game: NSObject {
             break
             
         case .playChallenge:
+            selectedCard(withName: name, ability: ability)
             break
             
         case .playFinal:
