@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
     fileprivate let inPlayZStart: Float = -0.5
     fileprivate let inPlayYStart: Float = 0.5
     
-    fileprivate weak var gameOverLabel: UILabel?
+    fileprivate var gameOverLabel: UILabel?
     fileprivate var phaseLight: SCNNode?
     fileprivate var activeAbility: Ability?
 
@@ -211,6 +211,19 @@ extension GameViewController: GameDelegate {
         updateChallengeStatus()
     }
     
+    func action(card: String) {
+        
+        guard let cardNode = gameView.scene?.rootNode.childNode(withName: card, recursively: true) else { return }
+        move(card: cardNode, toZPosition: cardNode.position.z, xPosition: cardNode.position.x + 0.1) {}
+    }
+    
+    func resetAction(card: String, ability: Ability?) {
+        
+        guard let cardNode = gameView.scene?.rootNode.childNode(withName: card, recursively: true) else { return }
+        move(card: cardNode, toZPosition: cardNode.position.z, xPosition: -0.2) {}
+        activeAbility = ability
+    }
+    
     func selected(challengeCard: Card, withCompletion completion: @escaping () -> Void) {
         
         guard let node = gameView.scene?.rootNode.childNode(withName: challengeCard.cid, recursively: true) else { return }
@@ -315,6 +328,11 @@ extension GameViewController: GameDelegate {
         challengePointsLabel.text = "\(points)/\(challengePoints)"
         takeButton.isEnabled = (points >= challengePoints)
     }
+    
+    func present(controller: UIViewController) {
+        
+        present(controller, animated: true, completion: nil)
+    }
 }
 
 extension GameViewController: AbilitiesContainerDelegate {
@@ -328,8 +346,6 @@ extension GameViewController: AbilitiesContainerDelegate {
             break
             
         case .draw:
-            game?.draw(cost: 0)
-            guard ability.value == 2 else { return }
             game?.draw(cost: 0)
             break
             

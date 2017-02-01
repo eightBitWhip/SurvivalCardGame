@@ -59,7 +59,15 @@ extension AbilitiesContainer: AbilityButtonDelegate {
             return
         }
         
-        button.removeFromSuperview()
+        if [AbilityType.draw, AbilityType.exchange, AbilityType.swap].contains(ability.type), let value = ability.value, value > 1 {
+            
+            let description = ability.description.replacingOccurrences(of: "\(value)", with: "\((value - 1))")
+            button.ability = Ability(description: description, type: ability.type, activation: ability.activation, value: (value - 1))
+        } else {
+            
+            button.removeFromSuperview()
+        }
+        
         delegate?.activateAbility(ability: ability)
     }
     

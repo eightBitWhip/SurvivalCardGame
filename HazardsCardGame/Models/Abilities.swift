@@ -14,20 +14,20 @@ enum ActivationType {
     case tap
 }
 
-enum AbilityType {
+enum AbilityType: String {
     
-    case draw
-    case swap
-    case exchange
-    case destroy
-    case copy
-    case bottomOfDeck
-    case sort
-    case life
-    case double
-    case phase
-    case stop
-    case highestCardEqual
+    case draw = "Draw"
+    case swap = "Swap"
+    case exchange = "Exchange"
+    case destroy = "Destroy"
+    case copy = "Copy"
+    case bottomOfDeck = "Bottom of the draw deck"
+    case sort = "sort"
+    case life = "life"
+    case double = "Double"
+    case phase = "phase"
+    case stop = "stop"
+    case highestCardEqual = "highest"
 }
 
 struct Ability {

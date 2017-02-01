@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +19,13 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOC-FS-46I">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="350"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="yXd-ff-iUu">
+                    <rect key="frame" x="83" y="44" width="84" height="119"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="84" id="MiY-8v-hjx"/>
+                        <constraint firstAttribute="width" secondItem="yXd-ff-iUu" secondAttribute="height" multiplier="45:64" id="wxM-AE-ZIx"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGb-Eo-BlA">
                     <rect key="frame" x="8" y="8" width="50" height="50"/>
@@ -40,9 +48,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDc-b1-Mwq">
-                    <rect key="frame" x="89" y="147" width="72" height="21"/>
+                    <rect key="frame" x="71" y="163" width="108" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="72" id="KIb-eI-0om"/>
+                        <constraint firstAttribute="width" constant="108" id="KIb-eI-0om"/>
                         <constraint firstAttribute="height" constant="21" id="gtJ-mf-Xic"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
@@ -60,8 +69,10 @@
                 <constraint firstAttribute="trailing" secondItem="yOC-FS-46I" secondAttribute="trailing" id="fZv-hq-ISf"/>
                 <constraint firstItem="9cr-0d-cez" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hNT-Gi-Avw"/>
                 <constraint firstItem="bDc-b1-Mwq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ihL-GC-d8S"/>
-                <constraint firstItem="bDc-b1-Mwq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.9" id="lXS-t3-7Kt"/>
+                <constraint firstItem="bDc-b1-Mwq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.99" id="lXS-t3-7Kt"/>
+                <constraint firstItem="yXd-ff-iUu" firstAttribute="top" secondItem="9cr-0d-cez" secondAttribute="bottom" constant="4" id="y62-sO-Y0v"/>
                 <constraint firstItem="yOC-FS-46I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yA7-Wn-1Su"/>
+                <constraint firstItem="yXd-ff-iUu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yMK-vV-ih8"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -74,4 +85,7 @@
             <point key="canvasLocation" x="36" y="4"/>
         </view>
     </objects>
+    <resources>
+        <image name="face" width="540" height="769"/>
+    </resources>
 </document>

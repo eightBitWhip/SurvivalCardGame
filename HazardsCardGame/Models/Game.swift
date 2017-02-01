@@ -26,6 +26,8 @@ enum GamePhase: Int {
 protocol GameDelegate: class {
     
     func present(card: Card)
+    func action(card: String)
+    func resetAction(card: String, ability: Ability?)
     func selected(challengeCard: Card, withCompletion completion: @escaping () -> Void)
     func layoutChallengeChoices(cards: [Card], completion: @escaping () -> Void)
     func beginChallenge()
@@ -36,6 +38,7 @@ protocol GameDelegate: class {
     func stateChanged()
     func gameOver()
     func updateChallengeStatus()
+    func present(controller: UIViewController)
 }
 
 class Game: NSObject {
@@ -165,7 +168,7 @@ class Game: NSObject {
     
     func draw(cost: Int) {
         
-        guard state == .playChallenge, morale > 0 else { return }
+        guard state == .playChallenge, (morale - cost) >= 0 else { return }
         
         guard drawDeck.count > 0 else { return }
         let card = drawDeck.removeLast()
@@ -297,39 +300,85 @@ class Game: NSObject {
         
         if let selectedNode = inPlay.filter({ $0.cid == name }).first, let ability = ability {
             
-            switch ability.type {
+            delegate?.action(card: selectedNode.cid)
+            
+            let alertController = UIAlertController(title: "Confirm action", message: "Are you sure you want to '\(ability.type.rawValue)' this card?", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
                 
-            case .destroy:
-                guard let index = inPlay.index(of: selectedNode) else { return }
-                inPlay.remove(at: index)
-                delegate?.removeCard(withName: selectedNode.cid)
-                break
+                self.delegate?.resetAction(card: name, ability: ability)
+            })
+            alertController.addAction(UIAlertAction(title: "Yes", style: .default) { action in
                 
-            case .double:
-                challengeBonusPoints += selectedNode.pointValue
-                break
+                switch ability.type {
+                    
+                case .destroy:
+                    guard let index = self.inPlay.index(of: selectedNode) else { return }
+                    self.inPlay.remove(at: index)
+                    self.delegate?.removeCard(withName: selectedNode.cid)
+                    break
+                    
+                case .double:
+                    self.challengeBonusPoints += selectedNode.pointValue
+                    self.delegate?.resetAction(card: selectedNode.cid, ability: nil)
+                    break
+                    
+                case .exchange, .swap:
+                    guard let index = self.inPlay.index(of: selectedNode) else { return }
+                    let card = self.inPlay.remove(at: index)
+                    self.usedDeck.append(card)
+                    self.delegate?.removeCard(withName: selectedNode.cid)
+                    self.draw(cost: 0)
+                    break
+                    
+                case .bottomOfDeck:
+                    guard let index = self.inPlay.index(of: selectedNode) else { return }
+                    let card = self.inPlay.remove(at: index)
+                    self.drawDeck.insert(card, at: 0)
+                    self.delegate?.removeCard(withName: selectedNode.cid)
+                    break
+                    
+                default:
+                    break
+                }
                 
-            case .exchange, .swap:
-                guard let index = inPlay.index(of: selectedNode) else { return }
-                let card = inPlay.remove(at: index)
-                usedDeck.append(card)
-                delegate?.removeCard(withName: selectedNode.cid)
-                draw(cost: 0)
-                break
-                
-            case .bottomOfDeck:
-                guard let index = inPlay.index(of: selectedNode) else { return }
-                let card = inPlay.remove(at: index)
-                drawDeck.insert(card, at: 0)
-                delegate?.removeCard(withName: selectedNode.cid)
-                break
-                
-            default:
-                break
-            }
+                self.delegate?.updateChallengeStatus()
+            })
+            
+            delegate?.present(controller: alertController)
+            
+//            switch ability.type {
+//                
+//            case .destroy:
+//                guard let index = inPlay.index(of: selectedNode) else { return }
+//                inPlay.remove(at: index)
+//                delegate?.removeCard(withName: selectedNode.cid)
+//                break
+//                
+//            case .double:
+//                challengeBonusPoints += selectedNode.pointValue
+//                break
+//                
+//            case .exchange, .swap:
+//                guard let index = inPlay.index(of: selectedNode) else { return }
+//                let card = inPlay.remove(at: index)
+//                usedDeck.append(card)
+//                delegate?.removeCard(withName: selectedNode.cid)
+//                draw(cost: 0)
+//                break
+//                
+//            case .bottomOfDeck:
+//                guard let index = inPlay.index(of: selectedNode) else { return }
+//                let card = inPlay.remove(at: index)
+//                drawDeck.insert(card, at: 0)
+//                delegate?.removeCard(withName: selectedNode.cid)
+//                break
+//                
+//            default:
+//                break
+//            }
         }
         
-        delegate?.updateChallengeStatus()
+        //delegate?.updateChallengeStatus()
     }
     
     func selectedNode(withName name: String, ability: Ability?) {
