@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jxo-96-PrA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FOw-3M-E5V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="SZ3-2i-dn4">
+            <objects>
+                <viewController id="FOw-3M-E5V" customClass="MenuViewController" customModule="HazardsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fyz-xI-HPe"/>
+                        <viewControllerLayoutGuide type="bottom" id="DGJ-OF-y2j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19y-Bl-lLD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCO-mC-c9P" customClass="SCNView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbj-9s-h7y" customClass="RoundedCornersButton" customModule="HazardsCardGame" customModuleProvider="target">
+                                <rect key="frame" x="30" y="587" width="315" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.29713305280000002" blue="0.41284402570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jRX-W2-Ms2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="26"/>
+                                <state key="normal" title="Start game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Jxo-96-PrA" kind="presentation" id="Nax-TG-vN4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TCO-mC-c9P" firstAttribute="top" secondItem="fyz-xI-HPe" secondAttribute="bottom" id="0nW-S9-6og"/>
+                            <constraint firstItem="DGJ-OF-y2j" firstAttribute="top" secondItem="TCO-mC-c9P" secondAttribute="bottom" id="Gbq-tQ-hAB"/>
+                            <constraint firstItem="DGJ-OF-y2j" firstAttribute="top" secondItem="Xbj-9s-h7y" secondAttribute="bottom" constant="30" id="TSr-Gi-D1D"/>
+                            <constraint firstItem="Xbj-9s-h7y" firstAttribute="leading" secondItem="19y-Bl-lLD" secondAttribute="leading" constant="30" id="eGA-bm-kuc"/>
+                            <constraint firstItem="TCO-mC-c9P" firstAttribute="leading" secondItem="19y-Bl-lLD" secondAttribute="leading" id="eHf-h7-S3j"/>
+                            <constraint firstAttribute="trailing" secondItem="TCO-mC-c9P" secondAttribute="trailing" id="g2r-yW-0jr"/>
+                            <constraint firstAttribute="trailing" secondItem="Xbj-9s-h7y" secondAttribute="trailing" constant="30" id="umJ-KS-zCJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="TCO-mC-c9P" id="Mqd-0e-rG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPM-Kt-Pev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="174"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="W1r-6b-W8W">
             <objects>

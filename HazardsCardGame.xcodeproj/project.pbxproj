@@ -22,6 +22,11 @@
 		978F02DD1E2EC63D003207D8 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F02DC1E2EC63D003207D8 /* Array+Extensions.swift */; };
 		97C643261E33617600962590 /* AbilitiesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C643251E33617600962590 /* AbilitiesContainer.swift */; };
 		97C643491E3E461500962590 /* Misc+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C643481E3E461500962590 /* Misc+Extensions.swift */; };
+		97C6434B1E42982600962590 /* Menu.scn in Resources */ = {isa = PBXBuildFile; fileRef = 97C6434A1E42982600962590 /* Menu.scn */; };
+		97C6434D1E4298B800962590 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97C6434C1E4298B800962590 /* wallpaper.jpg */; };
+		97C6434F1E4299CF00962590 /* parquet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97C6434E1E4299CF00962590 /* parquet.jpg */; };
+		97C643511E429A7100962590 /* lamp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97C643501E429A7100962590 /* lamp.jpg */; };
+		97C643531E429E2200962590 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C643521E429E2200962590 /* MenuViewController.swift */; };
 		97E4A1A41E2581B900F6736F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4A1A31E2581B900F6736F /* AppDelegate.swift */; };
 		97E4A1A61E2581B900F6736F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E4A1A51E2581B900F6736F /* art.scnassets */; };
 		97E4A1A81E2581B900F6736F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4A1A71E2581B900F6736F /* GameViewController.swift */; };
@@ -59,6 +64,11 @@
 		978F02DC1E2EC63D003207D8 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		97C643251E33617600962590 /* AbilitiesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbilitiesContainer.swift; sourceTree = "<group>"; };
 		97C643481E3E461500962590 /* Misc+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Misc+Extensions.swift"; sourceTree = "<group>"; };
+		97C6434A1E42982600962590 /* Menu.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Menu.scn; sourceTree = "<group>"; };
+		97C6434C1E4298B800962590 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
+		97C6434E1E4299CF00962590 /* parquet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parquet.jpg; sourceTree = "<group>"; };
+		97C643501E429A7100962590 /* lamp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lamp.jpg; sourceTree = "<group>"; };
+		97C643521E429E2200962590 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		97E4A1A01E2581B900F6736F /* HazardsCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HazardsCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E4A1A31E2581B900F6736F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E4A1A51E2581B900F6736F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 		97E4A1C51E25844000F6736F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				97C643521E429E2200962590 /* MenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				97E4A1CA1E25849300F6736F /* CardGameplay.scn */,
+				97C6434A1E42982600962590 /* Menu.scn */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -199,6 +211,9 @@
 		97E4A1CD1E2585EC00F6736F /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				97C643501E429A7100962590 /* lamp.jpg */,
+				97C6434E1E4299CF00962590 /* parquet.jpg */,
+				97C6434C1E4298B800962590 /* wallpaper.jpg */,
 				978F02D21E282667003207D8 /* playingCard.jpg */,
 				97E4A1CE1E2585EC00F6736F /* cherryWoodTexture.jpg */,
 				978F02D01E26D114003207D8 /* envelopeTexture.jpg */,
@@ -290,16 +305,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C6434D1E4298B800962590 /* wallpaper.jpg in Resources */,
 				978F02D31E282667003207D8 /* playingCard.jpg in Resources */,
 				97E4A1A61E2581B900F6736F /* art.scnassets in Resources */,
 				978F02C51E26B4B1003207D8 /* StandardCard.xib in Resources */,
 				97E4A1CB1E25849300F6736F /* CardGameplay.scn in Resources */,
 				978F02D11E26D114003207D8 /* envelopeTexture.jpg in Resources */,
 				978F02C91E26B8C6003207D8 /* HazardCard.xib in Resources */,
+				97C6434F1E4299CF00962590 /* parquet.jpg in Resources */,
 				97E4A1B01E2581B900F6736F /* LaunchScreen.storyboard in Resources */,
+				97C643511E429A7100962590 /* lamp.jpg in Resources */,
 				97E4A1AD1E2581B900F6736F /* Assets.xcassets in Resources */,
 				97E4A1AB1E2581B900F6736F /* Main.storyboard in Resources */,
 				97E4A1CF1E2585EC00F6736F /* cherryWoodTexture.jpg in Resources */,
+				97C6434B1E42982600962590 /* Menu.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +339,7 @@
 				978F02D71E2A84DE003207D8 /* EnergyView.swift in Sources */,
 				97C643491E3E461500962590 /* Misc+Extensions.swift in Sources */,
 				978F02D91E2AD771003207D8 /* Game.swift in Sources */,
+				97C643531E429E2200962590 /* MenuViewController.swift in Sources */,
 				978F02D51E2A2B89003207D8 /* Buttons.swift in Sources */,
 				978F02DD1E2EC63D003207D8 /* Array+Extensions.swift in Sources */,
 				97E4A1A81E2581B900F6736F /* GameViewController.swift in Sources */,
